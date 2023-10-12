@@ -2,6 +2,7 @@ import random
 import copy
 import matplotlib.pyplot as plt
 
+
 N = 50
 P = 50
 MUTRATE = 0.01
