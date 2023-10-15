@@ -106,8 +106,7 @@ for x in range(Generations):
                     gene = MIN
             newind.gene.append(gene)
         new_offspring.append(newind)
-#append new individual or overwrite offspring
-        
+         
     # Calculate and assign fitness to the mutated offspring
     for newind in new_offspring:
         newind.fitness = test_function(newind) 
