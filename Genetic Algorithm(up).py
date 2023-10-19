@@ -1,14 +1,15 @@
 import random
 import copy
 import matplotlib.pyplot as plt
+import math
 
-N = 50  # Number of genes in each individual
+N = 10  # Number of genes in each individual
 P = 50  # Population size
 MUTRATE = 0.01  # Mutation rate
 Generations = 100  # Number of generations
 MUTSTEP = 0.1  #mutation step
-MAX = 1.0  # maximum value for a gene
-MIN = 0.0  # minimum value for a gene
+MAX = 5.12  # maximum value for a gene
+MIN = -5.12 # minimum value for a gene
 
 average_fitness_list = []  # List to store average fitness for each generation
 best_fitness_list = []  # List to store best fitness for each generation
@@ -34,7 +35,8 @@ for x in range (0, P):
 def test_function( ind ):
     utility=0
     for i in range(N):
-        utility = utility + ind.gene[i]
+        utility = utility+((ind.gene[i]*ind.gene[i])-10*math.cos(2*math.pi*ind.gene[i]))
+    utility = (10*N)+utility
     return utility
 
 # Calculate and assign fitness to each individual in the population
