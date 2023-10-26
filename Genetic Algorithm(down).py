@@ -5,9 +5,9 @@ import math
 
 N = 10  # Number of genes in each individual
 P = 50  # Population size
-MUTRATE = 0.01  # Mutation rate
+MUTRATE = 0.1  # Mutation rate
 Generations = 100  # Number of generations
-MUTSTEP = 0.1  # Mutation step
+MUTSTEP = 1  # Mutation step
 MAX = 5.12  # maximum value for a gene
 MIN = -5.12  # minimum value for a gene
 
@@ -99,8 +99,12 @@ for x in range(Generations):
     for newind in new_offspring:
         newind.fitness = test_function(newind)
 
-    population = copy.deepcopy(new_offspring)  # Replace the old population with the new offspring
-
+    for i in range(0,P):
+        if (population[i].fitness > new_offspring[i].fitness):
+           population[i]  = new_offspring[i]
+        # else:
+        #     population = copy.deepcopy(new_offspring)  # Replace the old population with the new offspring
+      
     # Calculate the average fitness of the population
     average_fitness = sum(ind.fitness for ind in population) / P
 
